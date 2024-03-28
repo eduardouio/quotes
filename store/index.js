@@ -5,6 +5,7 @@ const store = createStore({
     namespaced: true,
     state: {
         quotes: qoutesData(),
+        supplierQoutes: [],
     },
     getters: {
         getCountries: (state) => {
@@ -15,12 +16,20 @@ const store = createStore({
             }).map((q)=>q.pais).sort();
         },
         getSupplier: (state) => (country) => {
+            if (country === '') return null;
             return state.quotes.filter(
                 (quote) => quote.pais === country
-                ).map(q=>q.nombre).sort();
+                )
+        },
+        getPortsSupplier: (state) => (supplier) => {
+            if (!supplier) return '';
+            return supplier.puertos.join(' - ');
         },
     },
     mutations: {
+        addQuote(state, payload) {
+            state.supplierQoutes.push(payload);
+        },
     },
     actions: {
     },
