@@ -1,10 +1,8 @@
 <script setup>
 import {
-    BeakerIcon, ArrowRightCircleIcon, ArrowDownCircleIcon,
-    MapPinIcon, BuildingStorefrontIcon, PlusCircleIcon,
-    PencilSquareIcon, TrashIcon, CheckCircleIcon,
-    ArrowLeftIcon, HomeIcon, CalendarDaysIcon,
-    BellAlertIcon
+    PencilSquareIcon, TrashIcon, CalendarDaysIcon,
+    BellAlertIcon, ArrowRightCircleIcon, HomeIcon,
+    CheckCircleIcon, ArrowDownCircleIcon
 } from '@heroicons/vue/24/outline';
 import { useStore, mapGetters } from 'vuex';
 import { computed, onMounted, ref, reactive } from 'vue';
@@ -99,19 +97,6 @@ const sendData = function () {
             </span>
         </div>
         <div v-else>
-            <nav class="navbar bg-slate-800/10 shadow-md h-0">
-                <div class="navbar-start">
-                    <img src="https://sts-ndt.com/cordovez/statics/img/logo_cvl.png" alt="logo CVL"
-                        class="w-20 h-auto border">
-                    <a class="">Grupo CVL</a>
-                </div>
-                <div class="navbar-end">
-                    <ul tabIndex={0} className="flex flex-row menu">
-                        <li><a>Perfil</a></li>
-                        <li><a>Cotizaciones</a></li>
-                    </ul>
-                </div>
-            </nav>
             <section class="container container-lg mx-auto pt-5">
                 <div class="grid grid-cols-12 gap-2">
                     <div
@@ -146,8 +131,8 @@ const sendData = function () {
                                         </li>
                                     </ul>
                                     <div class="pt-10">
-                                        <button @click="country = ''" class="btn btn-sm btn-info font-light">
-                                            <HomeIcon class="h-5 w-5" />
+                                        <button @click="country = ''" class="btn btn-sm btn-info font-light text-white">
+                                            <HomeIcon class="h-5 w-5 text-white" />
                                             Inicio
                                         </button>
                                     </div>
