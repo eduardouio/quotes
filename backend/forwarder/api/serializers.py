@@ -15,7 +15,7 @@ class QoutationSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class userSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = [

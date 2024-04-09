@@ -11,9 +11,16 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'src\\backEnd\\static'),
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Quick-start development settings - unsuitable for production
@@ -57,7 +64,7 @@ ROOT_URLCONF = 'qoutes.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,13 +113,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'es-ec'
+TIME_ZONE = 'America/Guayaquil'
 USE_I18N = True
-
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -124,3 +128,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['static']),
+]
+
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.sep.join(os.path.abspath(
+    __file__).split(os.sep)[:-2]+['media'])
+
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.sep.join(os.path.abspath(
+    __file__).split(os.sep)[:-2]+['static_django'])
