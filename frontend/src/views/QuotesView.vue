@@ -137,11 +137,14 @@ const sendData = function () {
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-span-8 bg-slate-100 p-4" v-if="supplier">
-                                    <div class="grid grid-cols-8">
+                                <div class="col-span-8 p-4 border border-cyan-600 shadow-lg rounded-md" v-if="supplier">
+                                    <div class="grid grid-cols-8 gap-3">
                                         <div class="col-span-2 flex flex-col gap-1">
                                             <span class="text-red-800 kbd kbd-sm">{{ country }}</span>
-                                            <span class="text-red-800 kbd kbd-sm">{{ supplier.incoterm }}</span>
+                                            <div class="text-red-800 kbd kbd-sm">{{ supplier.incoterm }}
+                                                <span class="text-gray-300 ml-1 mr-1">|</span>
+                                                <span class="text-gray-600">CTR 20 PIES</span>
+                                            </div>
                                         </div>
                                         <div class="col-span-6 flex flex-col gap-1">
                                             <span class="kbd kbd-sm">{{ supplier.direccion }}</span>
@@ -176,27 +179,21 @@ const sendData = function () {
                                         <input v-model="qoute.freeDays"
                                             class="input input-sm border border-gray-300 text-right focus:bg-yellow-200 w-full col-span-2"
                                             type="number">
-                                        <label for="" class="col-span-2 text-end text-sm ">Gasto Origen:</label>
+                                        <label for="" class="col-span-2 text-end text-sm ">
+                                            Gasto Origen USD:
+                                        </label>
                                         <input v-model="qoute.gOrigin"
                                             class="input input-sm border border-gray-300 text-right focus:bg-yellow-200 w-full col-span-2"
                                             type="number" step="2">
-                                        <label for="" class="col-span-2 text-end text-sm">Moneda GO:</label>
-                                        <select v-model="qoute.currencyGo"
-                                            class="col-span-2 text-end text-sm input-sm border border-gray-300 focus:bg-yellow-200 rounded-md">
-                                            <option value="USD">USD</option>
-                                            <option value="EURO">EURO</option>
-                                        </select>
-                                        <label for="" class="col-span-2 text-end text-sm">Flete:</label>
+                                        <label for="" class="col-span-2 text-end text-sm">
+                                            Flete USD:
+                                        </label>
                                         <input v-model="qoute.freight"
                                             class="input input-sm border border-gray-300 text-right focus:bg-yellow-200 w-full col-span-2"
                                             type="number" step="2">
-                                        <label for="" class="col-span-2 text-end text-sm">Moneda Flete:</label>
-                                        <select v-model="qoute.currencyFreight"
-                                            class="col-span-2 text-end text-sm input-sm border border-gray-300 focus:bg-yellow-200 rounded-md">
-                                            <option value="USD">USD</option>
-                                            <option value="EURO">EURO</option>
-                                        </select>
-                                        <label for="" class="col-span-2 text-end text-sm">Gastos Locales:</label>
+                                        <label for="" class="col-span-2 text-end text-sm">
+                                            Gastos Locales USD:
+                                        </label>
                                         <input v-model="qoute.localExpenses"
                                             class="input input-sm border border-gray-300 text-right focus:bg-yellow-200 w-full col-span-2"
                                             type="number" step="2">
@@ -205,12 +202,14 @@ const sendData = function () {
                                             class="input input-sm border border-gray-300 text-right focus:bg-yellow-200 w-full col-span-2"
                                             type="number" step="0">
                                         <div class="col-span-8 p-3 text-end">
-                                            <button class="btn btn-info btn-sm font-light mr-5" @click="country = ''">
-                                                <HomeIcon class="h-5 w-5" />
+                                            <button class="btn btn-info btn-sm font-light mr-5 text-white"
+                                                @click="country = ''">
+                                                <HomeIcon class="h-5 w-5 text-white" />
                                                 Inicio
                                             </button>
-                                            <button class="btn btn-info btn-sm font-light" @click="addQoute(qoute)">
-                                                <ArrowDownCircleIcon class="h-5 w-5" />
+                                            <button class="btn btn-info btn-sm font-light text-white"
+                                                @click="addQoute(qoute)">
+                                                <ArrowDownCircleIcon class="h-5 w-5 text-white" />
                                                 Guardar Cotización
                                             </button>
                                         </div>
