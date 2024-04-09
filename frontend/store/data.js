@@ -1,17 +1,17 @@
 const qoutes = [
   {
-    nombre: 'SOGEVINUS FINE WINES',
-    pais: 'PORTUGAL',
-    puertos: ['PORTO'],
-    incoterm: 'EWX',
-    direccion: 'Sin Direccion'
-  },
-  {
     nombre: 'BANFI SRL',
     pais: 'ITALIA',
-    puertos: ['GENOVA'],
+    puertos: ['GENOVA', 'LIORNO'],
     incoterm: 'FOB',
     direccion: 'No Aplica'
+  },
+  {
+    nombre: 'PLANETA MARACOLLI SRL',
+    pais: 'ITALIA',
+    puertos: ['GENOVA', 'LIORNO'],
+    incoterm: 'FCA',
+    direccion: 'C.F. e P.IVA 01536110842 Sede: Contrada Dispensa - 92013 Menfi (AG) Italia'
   },
   {
     nombre: 'BODEGAS MUGA S.L.',
@@ -57,30 +57,30 @@ const qoutes = [
     direccion: 'No Aplica'
   },
   {
-    nombre: 'BODEGAS RODERO S. L.',
-    pais: 'ESPAÑA',
-    puertos: ['BARCELONA'],
-    incoterm: 'EXW',
-    direccion: 'Sin Direccion'
-  },
-  {
     nombre: 'PETER MERTES KG',
     pais: 'ALEMANIA',
     puertos: ['ANTWERP', 'HAMBURG'],
     incoterm: 'EXW',
-    direccion: 'Sin Direccion'
+    direccion: 'Bornwiese 4, 54470 Bernkastel-Kues.Amtsgericht Wittlich HRA 20315'
   },
   {
-    nombre: 'GONZALEZ BYASS S.A.',
+    nombre: 'GONZALEZ BYASS S.A. BARCELONA',
     pais: 'ESPAÑA',
-    puertos: ['BARCELONA', 'CADIZ', 'ALGECIRAS', 'VILVAO'],
+    puertos: ['BARCELONA', 'VALENCIA'],
+    incoterm: 'FOB',
+    direccion: 'No Aplica'
+  },
+  {
+    nombre: 'GONZALEZ BYASS S.A. ALCEGIRAS',
+    pais: 'ESPAÑA',
+    puertos: ['ALGECIRAS'],
     incoterm: 'FOB',
     direccion: 'No Aplica'
   },
   {
     nombre: 'FELIX SOLIS AVANTIS S.L.',
     pais: 'ESPAÑA',
-    puertos: ['BARCELONA', 'VALENCIA'],
+    puertos: ['VALENCIA'],
     incoterm: 'FOB',
     direccion: 'No Aplica'
   },
@@ -96,7 +96,7 @@ const qoutes = [
     pais: 'ESTADOS UNIDOS',
     puertos: ['OAKLAND'],
     incoterm: 'EXQ',
-    direccion: 'Sin Direccion'
+    direccion: '770 NORTH GUILD AVENUE 95240 LODI'
   },
   {
     nombre: 'RUM TRADING INTERNACIONAL CORP',
@@ -107,11 +107,11 @@ const qoutes = [
       'Km 120 Carretera A Chinandega, De La Gasolinera Unas 3 Cuadras Al Este, 25 Varas Al Norte,Chichigalpa,Nicaragua'
   },
   {
-    nombre: 'BODEGAS Y VIÑEDOS TABERNERO',
-    pais: 'PERU',
-    puertos: ['CALLAO'],
-    incoterm: 'FOB',
-    direccion: 'No Aplica'
+    nombre: 'FEVER TREE ROW LIMITED CTR 40 PIES',
+    pais: 'REINO UNIDO',
+    puertos: ['LONDRES', 'TILBURY'],
+    incoterm: 'EXW',
+    direccion: 'Downtons, Burma Road SharpnessNr Berkeley GL13 9UQ'
   },
   {
     nombre: 'TREASURY WINE ESTATES AMERICAS COMPANY',
@@ -123,16 +123,16 @@ const qoutes = [
   {
     nombre: 'GIL FAMILY ESTATES SL',
     pais: 'ESPAÑA',
-    puertos: ['BARCELONA'],
+    puertos: ['VALENCIA'],
     incoterm: 'EXW',
-    direccion: 'Sin Direccion'
+    direccion: 'PORTILLO DE LA GLORIETA BAJO-DCHA 30520 JUMILLA (MURCIA) ESPAÑA'
   },
   {
     nombre: 'LES GRANDS CHAIS DE FRANCE',
     pais: 'FRANCIA',
-    puertos: ['HAMBURGO', 'LE HAVRE', 'AMBERES', 'ANTWERP'],
+    puertos: ['HAMBURGO', 'LE HAVRE', 'AMBERES', 'ANTWERP', 'BILBAO'],
     incoterm: 'EXW',
-    direccion: 'Sin Direccion'
+    direccion: '33720 LANDIRAS'
   },
   {
     nombre: 'KRITER BRUT DE BRUT',
@@ -146,14 +146,14 @@ const qoutes = [
     pais: 'CUBA',
     puertos: ['HAVANA'],
     incoterm: 'FOB',
-    direccion: 'Downtons, Burma Road Sharpnessnr Berkeley Gl13 9uq'
+    direccion: 'No aplica'
   },
   {
     nombre: 'LOPEZ MORENAS SL',
     pais: 'ESPAÑA',
     puertos: ['ALGECIRAS'],
     incoterm: 'EXW',
-    direccion: 'Sin Direccion'
+    direccion: 'Carretera Villafranca Km 8, Fuente del Maestre CP. 06360, Badajoz, España'
   },
   {
     nombre: 'HECHICERA',

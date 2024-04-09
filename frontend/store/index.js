@@ -5,7 +5,10 @@ const store = createStore({
   namespaced: true,
   state: {
     quotes: qoutesData(),
-    supplierQoutes: []
+    supplierQoutes: [],
+    menu_selected: 'home',
+    supplier: null,
+    user: null
   },
   getters: {
     getCountries: (state) => {
@@ -51,6 +54,9 @@ const store = createStore({
       })
       if (filtered.length) return true
       return false
+    },
+    getSelectedMenu: (state) => {
+      return state.menu_selected
     }
   },
   mutations: {
@@ -70,12 +76,17 @@ const store = createStore({
     changeQoute(state, payload) {
       localStorage.clear()
       localStorage.setItem('supplierQoutes', JSON.stringify(state.supplierQoutes))
+    },
+    changeMenuSelected(state, payload) {
+      state.menu_selected = payload
     }
   },
   actions: {
     sendData({ commit }, payload) {
       const url = 'localhost:8000/'
-    }
+    },
+    getUserData({ commit }) {},
+    getProfile({ commit }) {}
   }
 })
 export default store

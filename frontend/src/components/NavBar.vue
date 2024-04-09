@@ -17,7 +17,7 @@ const current = computed(() => store.getters.getSelectedMenu)
             <a class="">Grupo CVL</a>
         </div>
         <div class="navbar-end">
-            <ul tabIndex={0} class="flex flex-row menu items-center">
+            <ul tabIndex={0} class="flex flex-row menu gap-4">
                 <li @click="store.commit('changeMenuSelected', 'home')" :class="{ [activeClass]: current === 'home' }">
                     <RouterLink to="/">
                         <CurrencyDollarIcon class="w-6 h-6" /> Cotizaciones
