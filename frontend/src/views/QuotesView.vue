@@ -24,9 +24,7 @@ const resetQoute = function () {
         portDestination: '',
         transitDays: 0,
         gOrigin: 0,
-        currencyGo: 'USD',
         freight: 0,
-        currencyFreight: 'USD',
         localExpenses: 0,
         freeDays: 0,
         offerDays: 0
@@ -259,9 +257,8 @@ const sendData = function () {
                                         <td class="border text-end">{{ myQoute.freeDays }}</td>
                                         <td class="border text-end">
                                             <div class="flex justify-between">
-                                                <span class="badge badge-sm bg-green-300"
-                                                    :class="{ 'bg-red-300': myQoute.currencyGo === 'EURO' }">
-                                                    {{ myQoute.currencyGo }}
+                                                <span class="badge badge-sm bg-green-300">
+                                                    USD
                                                 </span>
                                                 <span>
                                                     {{ myQoute.gOrigin.toFixed(2) }}
@@ -270,9 +267,8 @@ const sendData = function () {
                                         </td>
                                         <td class="border text-end">
                                             <div class="flex justify-between">
-                                                <span class="badge badge-sm bg-green-300"
-                                                    :class="{ 'bg-red-300': myQoute.currencyFreight === 'EURO' }">
-                                                    {{ myQoute.currencyFreight }}
+                                                <span class="badge badge-sm bg-green-300">
+                                                    USD
                                                 </span>
                                                 <span>
                                                     {{ myQoute.freight.toFixed(2) }}
