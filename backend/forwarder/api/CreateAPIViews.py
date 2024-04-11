@@ -1,4 +1,4 @@
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import CreateAPIView
 from forwarder.models import Forwarder, Qoutation
 from django.contrib.auth.models import User
 from .serializers import (
@@ -6,19 +6,19 @@ from .serializers import (
 )
 
 
-# /api/forwarder/<pk>/
-class ForwarderRetrieveView(RetrieveAPIView):
+# /api/forwarder/create/
+class ForwarderCreateView(CreateAPIView):
     serializer_class = ForwarderSerializer
     queryset = Forwarder.objects.all()
 
 
-# /api/qoutation/<pk>/
-class QoutationRetrieveView(RetrieveAPIView):
+# /api/qoutation/create/
+class QoutationCreateView(CreateAPIView):
     serializer_class = QoutationSerializer
     queryset = Qoutation.objects.all()
 
 
-# /api/user/<pk>/
-class UserRetrieveView(RetrieveAPIView):
+# /api/user/create/
+class UserCreateView(CreateAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()

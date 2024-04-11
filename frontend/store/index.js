@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { qoutesData } from './data'
+import serverConfig from '@/conf'
 
 const store = createStore({
   namespaced: true,
@@ -79,6 +80,12 @@ const store = createStore({
     },
     changeMenuSelected(state, payload) {
       state.menu_selected = payload
+    },
+    getUserData(state, payload) {
+      state.user = payload
+    },
+    getForwarder(state, payload) {
+      state.supplier = payload
     }
   },
   actions: {
