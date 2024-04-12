@@ -2,10 +2,11 @@
 import {
     PencilSquareIcon, TrashIcon, CalendarDaysIcon,
     BellAlertIcon, ArrowRightCircleIcon, HomeIcon,
-    CheckCircleIcon, ArrowDownCircleIcon
+    CheckCircleIcon, ArrowDownCircleIcon, ArrowRightIcon
 } from '@heroicons/vue/24/outline';
 import { useStore, mapGetters } from 'vuex';
-import { computed, onMounted, ref, reactive } from 'vue';
+import { computed, onMounted, ref, reactive, watch } from 'vue';
+import DataTable from 'datatables.net-dt';
 
 const store = useStore();
 let country = ref('');
@@ -15,6 +16,7 @@ let idxModify = ref(false);
 let confirmSend = ref(false);
 let idxQoute = ref(0);
 let closeOrder = ref(false);
+let qoutesSupplier = ref([]);
 
 const resetQoute = function () {
     qoute = {
@@ -31,9 +33,26 @@ const resetQoute = function () {
     }
 }
 
+watch(country, (newCountry) => {
+    console.log('watchCountry', newCountry);
+    if (newCountry === '') {
+        setTimeout(() => {
+            let table = new DataTable('#myTable', {
+                "paging": false,
+            });
+        }, 500);
+    }
+});
+
+
 onMounted(() => {
     store.getters.getQoutes;
     resetQoute();
+    setTimeout(() => {
+        let table = new DataTable('#myTable', {
+            "paging": false,
+        });
+    }, 1000);
 })
 
 const ports = computed(() => {
@@ -55,20 +74,17 @@ const addQoute = function (qoute) {
 };
 
 const modifyQoute = function (myQoute) {
+    console.log('modificar', myQoute);
     idxModify.value = true;
     supplier.value = myQoute.supplier;
     country.value = myQoute.country;
+    setSupplier(myQoute.supplier);
     qoute = myQoute;
 };
 
 const setSupplier = function (mySupplier) {
     supplier.value = mySupplier;
-    const myQoute = store.getters.getQoute(supplier.value)
-    if (myQoute.qoute) {
-        idxModify.value = true
-        idxQoute.value = myQoute.idx
-        return modifyQoute(myQoute.qoute);
-    }
+    qoutesSupplier.value = store.getters.getSupplierQoutes(supplier.value)
     resetQoute();
 };
 
@@ -111,8 +127,10 @@ const sendData = function () {
                         <div v-if="country">
                             <div class="flex justify-center gap-4 w-full bg-zinc-600">
                                 <span class="text-xl font-light text-white">
-                                    <span v-if="!supplier" class="text-cyan-100">Selecciones Un Proveedor De La
-                                        Lista</span>
+                                    <span v-if="!supplier" class="text-cyan-100">
+                                        Selecciones Un Proveedor De La
+                                        Lista
+                                    </span>
                                     <span v-else>{{ supplier.nombre }}</span>
                                 </span>
                             </div>
@@ -151,7 +169,6 @@ const sendData = function () {
                                             </span>
                                         </div>
                                     </div>
-
                                     <hr class="m-3">
                                     <div class="grid grid-cols-8 gap-2">
                                         <label :for="qoute.portOrigin" class="col-span-2 text-end text-sm">Puerto
@@ -199,17 +216,36 @@ const sendData = function () {
                                         <input v-model="qoute.offerDays"
                                             class="input input-sm border border-gray-300 text-right focus:bg-yellow-200 w-full col-span-2"
                                             type="number" step="0">
-                                        <div class="col-span-8 p-3 text-end">
-                                            <button class="btn btn-info btn-sm font-light mr-5 text-white"
-                                                @click="country = ''">
-                                                <HomeIcon class="h-5 w-5 text-white" />
-                                                Inicio
-                                            </button>
-                                            <button class="btn btn-info btn-sm font-light text-white"
-                                                @click="addQoute(qoute)">
-                                                <ArrowDownCircleIcon class="h-5 w-5 text-white" />
-                                                Guardar Cotización
-                                            </button>
+
+                                        <div class="col-span-8 p-1 m-2">
+                                            <hr class="p-1" />
+                                            <div class="flex justify-between">
+                                                <div></div>
+                                                <div>
+                                                    <button class="btn btn-info btn-sm font-light mr-5 text-white"
+                                                        @click="country = ''">
+                                                        <HomeIcon class="h-5 w-5 text-white" />
+                                                        Inicio
+                                                    </button>
+                                                    <button class="btn btn-info btn-sm font-light text-white"
+                                                        @click="addQoute(qoute)">
+                                                        <ArrowDownCircleIcon class="h-5 w-5 text-white" />
+                                                        Guardar Cotización
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-8 p-1 m-2 border rounded shadow bg-slate-100">
+                                            <div class="text-center text-purple-800"> Cotizaciones Ingresadas</div>
+                                            <ul class="w-full md:w-1/2 flex flex-col gap-3 items-start">
+                                                <li v-for="q in qoutesSupplier" :key="q" @click="modifyQoute(q)"
+                                                    class="rounded-md border border-red-600 bg-gray-700 p-1 flex gap-2 items-center text-white">
+                                                    <PencilSquareIcon class="h-5 w-5 text-cyan-400" />
+                                                    {{ q.portOrigin }}
+                                                    <ArrowRightIcon class="h-5 w-5 text-cyan-400" />
+                                                    {{ q.portDestination }}
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +255,7 @@ const sendData = function () {
                             <div class=" text-center text-sm text-gray-800 font-light h-10">
                                 Para agregar items selecciones un pais de la lista a la izquierda
                             </div>
-                            <table class="table table-xs">
+                            <table class="table table-xs" id="myTable">
                                 <thead>
                                     <tr class="bg-gray-600 text-white font-light text-md text-center">
                                         <td class="border">#</td>

@@ -47,9 +47,15 @@ const store = createStore({
         idx: state.supplierQoutes.indexOf(quote)
       }
     },
+    getSupplierQoutes: (state) => (supplier) => {
+      if (state.supplierQoutes.length === 0) return []
+      const quotes = state.supplierQoutes.filter(
+        (quote) => quote.supplier.nombre === supplier.nombre
+      )
+      return quotes
+    },
     getSuppliersQouted: (state) => (nameSupplier) => {
       if (state.supplierQoutes.length === 0) return false
-
       const filtered = state.supplierQoutes.filter((i) => {
         return i.supplier.nombre === nameSupplier
       })

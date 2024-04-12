@@ -64,18 +64,11 @@ const qoutes = [
     direccion: 'Bornwiese 4, 54470 Bernkastel-Kues.Amtsgericht Wittlich HRA 20315'
   },
   {
-    nombre: 'GONZALEZ BYASS S.A. BARCELONA',
+    nombre: 'GONZALEZ BYASS S.A.',
     pais: 'ESPAÑA',
-    puertos: ['BARCELONA', 'VALENCIA'],
+    puertos: ['ALGECIRAS', 'BARCELONA', 'VALENCIA'],
     incoterm: 'FOB',
-    direccion: 'No Aplica'
-  },
-  {
-    nombre: 'GONZALEZ BYASS S.A. ALCEGIRAS',
-    pais: 'ESPAÑA',
-    puertos: ['ALGECIRAS'],
-    incoterm: 'FOB',
-    direccion: 'No Aplica'
+    direccion: 'Cotizar Algenciras y Valencia'
   },
   {
     nombre: 'FELIX SOLIS AVANTIS S.L.',
